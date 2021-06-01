@@ -14,9 +14,13 @@ n creates groups, pattern must end with n
 
 public class Assignment1 {
     public static void main(String[] args) {
+        System.out.println("1)");
         printPattern("1*n2*n3*n4*n9.2n");
+        System.out.println("2)");
         printPattern("9.n4*n3*n2*n1*2n");
+        System.out.println("3)");
         printPattern("1*n3*n5*n7*n9.2n", true, 9);
+        System.out.println("4)");
         printPattern("9.n7*n5*n3*n1*2n", true, 9);
     }
 
@@ -87,26 +91,28 @@ public class Assignment1 {
 
 
 /*
-Output of program for grading
-
+1)
 *
 **
 ***
 ****
 .........
 
+2)
 .........
 ****
 ***
 **
 *
 
+3)
     *
    ***
   *****
  *******
 .........
 
+4)
 .........
  *******
   *****
