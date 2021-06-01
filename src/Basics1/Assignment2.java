@@ -11,19 +11,26 @@ public class Assignment2 {
         int depth = 0;
 
         Scanner input = new Scanner(System.in);
-        while(depth < 5 && guess < number - 10 | guess > number + 10){
+        while (depth < 5 && guess < number - 10 | guess > number + 10) {
             System.out.println("Guess a number between 1-100");
             guess = constrainInt(input.nextInt(), 100, 1);
             depth++;
         }
 
-        if(depth < 5)
+        if (depth < 5)
             System.out.printf("Correct you guessed %s and had to guess between %s-%s %n", guess, constrainInt(number - 10, 100, 1), constrainInt(number + 10, 100, 1));
         else
             System.out.printf("Sorry, answer is %s %n", number);
     }
 
-    public static int constrainInt(int num, int high, int low){
+    /**
+     * Simple constrain function
+     * @param num input number
+     * @param high inclusive
+     * @param low inclusive
+     * @return number between low-high
+     */
+    public static int constrainInt(int num, int high, int low) {
         return Math.max(low, Math.min(high, num));
     }
 }
