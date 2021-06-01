@@ -27,3 +27,30 @@ public class Assignment2 {
         return Math.max(low, Math.min(high, num));
     }
 }
+
+/*
+**copy of console for grading
+
+Guess a number between 1-100
+51
+Guess a number between 1-100
+61
+Guess a number between 1-100
+71
+Guess a number between 1-100
+81
+Guess a number between 1-100
+91
+Sorry, answer is 31
+
+**Example 2
+
+Guess a number between 1-100
+51
+Guess a number between 1-100
+61
+Guess a number between 1-100
+71
+Correct you guessed 71 and had to guess between 69-89
+
+ */

@@ -68,3 +68,35 @@ public class Assignment1 {
         }
     }
 }
+
+
+/*
+Output of program for grading
+
+*
+**
+***
+****
+.........
+
+.........
+****
+***
+**
+*
+
+    *
+   ***
+  *****
+ *******
+.........
+
+.........
+ *******
+  *****
+   ***
+    *
+
+
+Process finished with exit code 0
+ */
