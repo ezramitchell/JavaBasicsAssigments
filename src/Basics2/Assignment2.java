@@ -5,33 +5,39 @@ import java.util.Random;
 
 public class Assignment2 {
     public static void main(String[] args) {
-        int[] arr = constructArray(15, 100);
+        int[][] arr = constructArray(3, 100);
 
         //find max
         int maxVal = Integer.MIN_VALUE;
-        int maxIndex = 0;
+        int maxRow = 0;
+        int maxCol = 0;
         for(int i = 0; i < arr.length; i++){
-            if(arr[i] > maxVal){
-                maxVal = arr[i];
-                maxIndex = i;
+            for(int j = 0; j < arr[i].length; j++) {
+                if (arr[i][j] > maxVal) {
+                    maxVal = arr[i][j];
+                    maxRow = i;
+                    maxCol = j;
+                }
             }
         }
 
-        System.out.println(Arrays.toString(arr));
-        System.out.printf("Max: %s, Position: %s", maxVal, maxIndex + 1); // + 1 for easier understanding in output
+        System.out.println(Arrays.deepToString(arr));
+        System.out.printf("Max: %s, Position: (%s, %s)", maxVal, maxRow + 1, maxCol + 1); // + 1 for easier understanding in output
     }
 
-    private static int[] constructArray(int length, int bound){
+    private static int[][] constructArray(int length, int bound){
         Random rand = new Random();
-        int[] arr = new int[length];
+        int[][] arr = new int[length][length];
         for(int i = 0; i < arr.length; i++){
-            arr[i] = rand.nextInt(bound);
+            for(int j = 0; j < arr[i].length; j++){
+                arr[i][j] = rand.nextInt(bound);
+            }
         }
         return arr;
     }
 }
 
 /* Copy of console
- * [47, 31, 60, 4, 28, 34, 91, 96, 19, 67, 99, 95, 15, 53, 27]
- * Max: 99, Position: 11
+ * [[72, 65, 53], [49, 79, 83], [90, 67, 94]]
+ * Max: 94, Position: (3, 3)
  */
