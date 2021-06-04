@@ -1,6 +1,4 @@
-package Basics4;
-
-import java.util.Objects;
+package Basics4.PC;
 
 public class Producer<T> extends Thread{
 

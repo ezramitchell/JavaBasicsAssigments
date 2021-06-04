@@ -1,4 +1,4 @@
-package Basics4;
+package Basics4.PC;
 
 public class Consumer<T> extends Thread {
 
