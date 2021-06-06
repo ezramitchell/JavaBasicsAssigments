@@ -25,30 +25,28 @@ public class Recursion {
 
         for (int i = 0; i + 1 < arr.length; i++) { //iterate until second to last value
             if (arr[i] == arr[i + 1]) { //two number are consecutive duplicates
-                if (duplicateFound) { //add 1 to sum on third occurrence
-                    sum += arr[i];
-                } else { // add 2 to sum on first occurrence
-                    sum += arr[i] * 2;
-                    duplicateFound = true;
-                }
-                if (i + 2 == arr.length) grouped.add(sum); //add last value
+                sum += arr[i];
+                duplicateFound = true;
+                if (i + 2 == arr.length) grouped.add(sum + arr[i + 1]); //add last value
             } else {
                 if (duplicateFound) { //end of duplicate add sum to grouped list
-                    grouped.add(sum);
+                    grouped.add(sum + arr[i]); //include current value
                     sum = 0;
                     duplicateFound = false;
                 } else grouped.add(arr[i]); //no duplicate just add value
                 if (i + 2 == arr.length) grouped.add(arr[i + 1]); //add last value
             }
         }
+
+        System.out.println(Arrays.toString(grouped.toArray()));
         //change arraylist to intStream with extra value added to front
         return groupSum(IntStream.of(grouped.stream().mapToInt(Integer::intValue).toArray()), 0, desired) == desired;
     }
 
     /**
-     * Recursive method implementing groupSum
+     * Recursive method implementing groupSum, first element of IntStream should be padding
      *
-     * @param ints    stream of integers
+     * @param ints    stream of integers, needs padding number
      * @param sum     current Sum
      * @param desired desired number
      * @return ending sum
@@ -58,7 +56,7 @@ public class Recursion {
 
         //add largest number that doesn't bring sum past desired or return current sum
         //stream contains previous iterations max hence the skip
-        int[] result = ints.skip(1).filter(x -> x + sum <= desired).map(i -> ~i).sorted().map(i -> ~i).toArray(); //prepend is for this skip on first call
+        int[] result = ints.skip(1).filter(x -> x + sum <= desired).map(i -> ~i).sorted().map(i -> ~i).toArray(); //padding is for this skip on first call
         if (result.length > 0) {
             return groupSum(IntStream.of(result), sum + result[0], desired);
         }
